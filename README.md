@@ -1,46 +1,149 @@
-# Getting Started with Create React App
+# Mean Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Blog using Nodejs, Expressjs, Angularjs and Mongodb. MEAN Javascript Fullstack application
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Create/Edit/Delete Article
+- Passport Authentication for Administration
+- Bcrypt Password Hash
+- Angular ui router
+- textAngular Text-Editor
+- Sass
 
-### `npm start`
+## Server Side Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+````
+"bcrypt": "^0.8.4",
+"body-parser": "^1.13.2",
+"connect-flash": "^0.1.1",
+"cookie-parser": "^1.3.5",
+"ejs": "^2.3.3",
+"express": "^4.13.1",
+"express-session": "^1.11.3",
+"mongoose": "^4.1.0",
+"morgan": "^1.6.1",
+"passport": "^0.2.2",
+"passport-local": "^1.0.0"
+````
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Client Side Dependencies
 
-### `npm test`
+````
+"textAngular": "~1.4.2",
+"bootstrap": "~3.3.5",
+"angular": "1.4.3",
+"angular-ui-router": "~0.2.15"
+````
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Clone Repo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+````
+git clone https://github.com/DimiMikadze/Mean-Blog.git
+````
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Npm install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+````
+cd server & npm install
+````
 
-### `npm run eject`
+Create config.js file in config folder
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+````
+module.exports = {
+    'secret': 'SomeSecretString',
+    'database': 'mongodb://localhost/yourdatabasename'
+};
+````
+Start Mongodb
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+````
+mongod
+````
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Start Server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+````
+cd server & node app.js
+````
 
-## Learn More
+## Create Admin User
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+uncomment testUser route in app.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+````
+app.use("/", require("./routes"));
+app.use("/admin", require("./routes/admin"));
+// app.use("/test", require("./routes/testUser"));
+````
+Navigate to 
+
+````
+/test/create-user/your-name/your-password
+````
+
+this will create admin user with your name and hashed password
+
+## User Admin
+
+Navigate to 
+
+````
+/login
+````
+
+Insert your newly created name and password
+
+## Change Styles
+
+Css is written with Sass, you can update scss files with running
+
+````
+cd client/public & sass --watch scss:css
+````
+
+or if you don't want to use Sass just update
+
+````
+client/public/css/app.css
+````
+
+## Grunt Packages
+
+````
+grunt-contrib-concat
+grunt-contrib-watch
+````
+
+## Start Grunt
+
+Grant will concatenate admin script and css files and watch for changes
+
+````
+cd client
+grunt
+````
+
+output will look like this
+
+````
+Running "concat:js" (concat) task
+File app/scripts.js created.
+
+Running "concat:css" (concat) task
+File public/css/admin/bundle.css created.
+
+Running "watch" task
+Waiting...
+````
+
+## Contributing
+
+contributions are more than welcome!
+
+## License
+
+See license.txt
