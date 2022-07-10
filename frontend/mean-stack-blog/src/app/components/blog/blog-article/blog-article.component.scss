@@ -1,0 +1,118 @@
+.article .container {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+}
+
+.authorMedia {
+  width: 64px;
+  height: 64px;
+  border-radius: 45px;
+}
+
+.media-body {
+  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 21px;
+  color: rgb(88, 88, 88);
+  font-style: normal;
+  font-weight: 400;
+  flex-direction: column;
+  display: flex;
+}
+
+.article-image {
+    margin: 10px -15px 20px -15px;
+    border-radius: 0;
+    width: inherit;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+}
+
+.lead{
+  font-style: italic;
+
+  
+}
+
+.socialMedias i {
+  font-size: 2.5rem;
+
+}
+
+.socialMedias .fa-facebook-square {
+  color: #4267B2
+}
+
+.socialMedias .fa-linkedin {
+  color: #006599;
+}
+
+.socialMedias .fa-twitter-square {
+  color: #1DA1F2
+}
+
+.socialMedias a {
+  color: inherit;
+}
+
+.article-back-button a i {
+  color: grey;
+}
+
+.article-back-button a {
+  color: grey;
+  font-size: 1rem;
+}
+
+.article-back-button a:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
+
+.authorSocials a{
+  color:  #666;
+  margin-right: 15px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.auhtorBottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.arrow-up{
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .socialMedias {
+    height: inherit;
+    position: relative;
+    text-align: center;
+  }
+
+  .socialMedias i {
+    padding: 25px 50px 25px 50px;
+  }
+}
+
+@media (min-width: 960px) {
+  .socialMedias {
+    right: 5px;
+    top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    flex-direction: column;
+  }
+}
